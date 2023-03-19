@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Enter a Number</title>
+  </head>
+  <body>
+    <h1>Enter a Number</h1>
+    <form method="POST" action="{{ url_for('show_number') }}">
+      <input type="number" name="number">
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
