@@ -63,7 +63,14 @@ def uploadUsersFile():
     file = request.files['video']
     filename = file.filename
     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    feedback = "Too Low"
+    feedback = ""
+
+    cap = cv2.VideoCapture('uploads/video.mp4')
+    while True:
+        ret,frame = cap.read()
+        if not ret:
+            break
+        feedback += '1'
     return redirect(url_for('show_video', filename=filename,feedback=feedback))
 
 @app.route('/video/<filename>')
