@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Video</title>
+  </head>
+  <body>
+    <h1>View Video</h1>
+    <video width="640" height="480" controls>
+      <source src="{{ url_for('uploaded_file', filename=filename) }}" type="video/mp4">
+    </video>
+  </body>
+</html>
