@@ -5,12 +5,16 @@
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
   </head>
   <body>
+    <h1>
+        Webcam feed
+    </h1>
     <video id="video" autoplay></video>
     <h1>Enter a Number</h1>
     <form method="POST" action="{{ url_for('show_number') }}">
       <input type="number" name="number">
       <input type="submit" value="Submit">
     </form>
+    <h1>Upload (or take) a video from your camera roll</h1>
     <form method="POST" action = "/uploadUsersFile" enctype="multipart/form-data">
         <input type="file" name="video">
         <input type = "submit" value = "Upload">
