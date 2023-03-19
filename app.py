@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 import os
+import cv2
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] ='uploads'
 @app.route('/')
