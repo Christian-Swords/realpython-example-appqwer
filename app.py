@@ -66,11 +66,12 @@ def uploadUsersFile():
     feedback = ""
 
     cap = cv2.VideoCapture('uploads/video.mp4')
+    framecount = 0
     while True:
         ret,frame = cap.read()
         if not ret:
             break
-        feedback += '1'
+        feedback += 1
     return redirect(url_for('show_video', filename=filename,feedback=feedback))
 
 @app.route('/video/<filename>')
