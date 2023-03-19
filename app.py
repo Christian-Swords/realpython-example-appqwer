@@ -63,10 +63,10 @@ def uploadUsersFile():
     file = request.files['video']
     filename = file.filename
     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    feedback = ""
+    feedback = 0
 
     cap = cv2.VideoCapture('uploads/video.mp4')
-    framecount = 0
+    
     while True:
         ret,frame = cap.read()
         if not ret:
