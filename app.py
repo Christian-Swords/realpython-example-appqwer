@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-
+import os
 app = Flask(__name__)
 
 @app.route('/')
@@ -14,3 +14,4 @@ def show_number():
 @app.route('/display_number/<number>')
 def display_number(number):
     return render_template('display_number.html', number=number)
+
