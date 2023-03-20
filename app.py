@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, flash, get_flashed_messages
 import os
 import cv2
-#import mediapipe as mp
+import posecamera as pc
+
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] ='uploads'
