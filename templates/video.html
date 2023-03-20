@@ -8,6 +8,7 @@
     <video width="640" height="480" controls>
       <source src="{{ url_for('uploaded_file', filename=filename) }}" type="video/mp4">
       <source src="{{ url_for('uploaded_file', filename=filename) }}" type="video/quicktime">
+      
     </video>
     
     <p>Feedback: {{ feedback }}</p>
