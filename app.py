@@ -1,43 +1,43 @@
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, flash, get_flashed_messages
 import os
 import cv2
-from mediapipe import solutions as mp
+#from mediapipe import solutions as mp
 
 
-class PoseDetector:
+# class PoseDetector:
 
-    def __init__(self, mode = False, upBody = False, smooth=True, detectionCon = 0.5, trackCon = 0.5):
+#     def __init__(self, mode = False, upBody = False, smooth=True, detectionCon = 0.5, trackCon = 0.5):
 
-        self.mode = mode
-        self.upBody = upBody
-        self.smooth = smooth
-        self.detectionCon = detectionCon
-        self.trackCon = trackCon
+#         self.mode = mode
+#         self.upBody = upBody
+#         self.smooth = smooth
+#         self.detectionCon = detectionCon
+#         self.trackCon = trackCon
 
-        self.mpDraw = mp.drawing_utils
-        self.mpPose = mp.pose
-        #self.pose = self.mpPose.Pose(self.mode, self.upBody, self.smooth, self.detectionCon, self.trackCon)
-        self.pose = self.mpPose.Pose()
+#         self.mpDraw = mp.drawing_utils
+#         self.mpPose = mp.pose
+#         #self.pose = self.mpPose.Pose(self.mode, self.upBody, self.smooth, self.detectionCon, self.trackCon)
+#         self.pose = self.mpPose.Pose()
 
-    def findPose(self, img, draw=True):
-        imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        self.results = self.pose.process(imgRGB)
-        if self.results.pose_landmarks:
-            if draw:
-                self.mpDraw.draw_landmarks(img, self.results.pose_landmarks, self.mpPose.POSE_CONNECTIONS)
+#     def findPose(self, img, draw=True):
+#         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+#         self.results = self.pose.process(imgRGB)
+#         if self.results.pose_landmarks:
+#             if draw:
+#                 self.mpDraw.draw_landmarks(img, self.results.pose_landmarks, self.mpPose.POSE_CONNECTIONS)
 
-        return img, self.results.pose_landmarks, self.mpPose.POSE_CONNECTIONS
+#         return img, self.results.pose_landmarks, self.mpPose.POSE_CONNECTIONS
 
-    def getPosition(self, img, draw=True):
-        lmList= []
-        if self.results.pose_landmarks:
-            for id, lm in enumerate(self.results.pose_landmarks.landmark):
-                h, w, c = img.shape
-                cx, cy = int(lm.x * w), int(lm.y * h)
-                lmList.append([id, cx, cy])
-                if draw:
-                    cv2.circle(img, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
-        return lmList
+#     def getPosition(self, img, draw=True):
+#         lmList= []
+#         if self.results.pose_landmarks:
+#             for id, lm in enumerate(self.results.pose_landmarks.landmark):
+#                 h, w, c = img.shape
+#                 cx, cy = int(lm.x * w), int(lm.y * h)
+#                 lmList.append([id, cx, cy])
+#                 if draw:
+#                     cv2.circle(img, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
+#         return lmList
 
 
 app = Flask(__name__)
@@ -73,7 +73,7 @@ def uploadUsersFile():
     fourcc = cv2.VideoWriter_fourcc(*'H264')
     outputFileName = 'annotatedVideo.mp4'
     out = cv2.VideoWriter('uploads/' + outputFileName, fourcc, fps, (width, height))
-    detector = PoseDetector()
+    #detector = PoseDetector()
     while True:
         ret,frame = cap.read()
         
@@ -81,9 +81,9 @@ def uploadUsersFile():
             break
         #flipped_frame = cv2.flip(frame,1)
         #out.write(flipped_frame)
-        frame, p_landmarks, p_connections = detector.findPose(frame, False)
+        #frame, p_landmarks, p_connections = detector.findPose(frame, False)
         cv2.line(frame,(100,100),(200,200),(255,0,0), thickness=3,lineType=cv2.LINE_AA)
-        mp.drawing_utils.draw_landmarks(frame, p_landmarks, p_connections)
+        #mp.drawing_utils.draw_landmarks(frame, p_landmarks, p_connections)
         out.write(frame)
         #pose = det(frame)
         
