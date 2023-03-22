@@ -70,7 +70,7 @@ def uploadUsersFile():
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     fps = int(cap.get(cv2.CAP_PROP_FPS))
     #fourcc = cv2.VideoWriter_fourcc(*'avc1')
-    fourcc = cv2.VideoWriter_fourcc(*'H264')
+    fourcc = cv2.VideoWriter_fourcc(*'vp80')
     outputFileName = 'annotatedVideo.mp4'
     out = cv2.VideoWriter('uploads/' + outputFileName, fourcc, fps, (width, height))
     #detector = PoseDetector()
