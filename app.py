@@ -82,7 +82,7 @@ def uploadUsersFile():
         #flipped_frame = cv2.flip(frame,1)
         #out.write(flipped_frame)
         #frame, p_landmarks, p_connections = detector.findPose(frame, False)
-        cv2.line(frame,(100,100),(200,200),(255,0,0), thickness=3,lineType=cv2.LINE_AA)
+        cv2.line(frame,(100,100),(200,200),(0,255,0), thickness=3,lineType=cv2.LINE_AA)
         #mp.drawing_utils.draw_landmarks(frame, p_landmarks, p_connections)
         out.write(frame)
         #pose = det(frame)
@@ -97,7 +97,7 @@ def uploadUsersFile():
     cap.release()
     out.release()
     
-    return redirect(url_for('show_video', filename=outputFileName,feedback=feedback))
+    return redirect(url_for('show_video', filename=filename,feedback=feedback))
 
 @app.route('/video/<filename>')
 def show_video(filename):
