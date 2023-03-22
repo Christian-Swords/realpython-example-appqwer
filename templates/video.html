@@ -8,8 +8,10 @@
     <video width="640" height="480" controls>
       <source src="{{ url_for('uploaded_file', filename=filename) }}" type="video/mp4">
       <source src="{{ url_for('uploaded_file', filename=filename) }}" type="video/quicktime">
+      <source src="{{ url_for('uploaded_file', filename=filename) }}" type="video/avi">
       
     </video>
+    <a href="{{ url_for('uploaded_file', filename=filename) }}" download>Download Video</a>
     
     <p>Feedback: {{ feedback }}</p>
     <a href="{{ url_for('index') }}">Go back to index</a>

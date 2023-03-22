@@ -70,8 +70,8 @@ def uploadUsersFile():
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     fps = int(cap.get(cv2.CAP_PROP_FPS))
     #fourcc = cv2.VideoWriter_fourcc(*'avc1')
-    fourcc = cv2.VideoWriter_fourcc(*'vp80')
-    outputFileName = 'annotatedVideo.mp4'
+    fourcc = cv2.VideoWriter_fourcc(*'MJPG')
+    outputFileName = 'annotatedVideo.avi'
     out = cv2.VideoWriter('uploads/' + outputFileName, fourcc, fps, (width, height))
     #detector = PoseDetector()
     while True:
@@ -97,7 +97,7 @@ def uploadUsersFile():
     cap.release()
     out.release()
     
-    return redirect(url_for('show_video', filename=filename,feedback=feedback))
+    return redirect(url_for('show_video', filename=outputFileName,feedback=feedback))
 
 @app.route('/video/<filename>')
 def show_video(filename):
