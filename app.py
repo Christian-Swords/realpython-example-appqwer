@@ -93,7 +93,7 @@ def uploadUsersFile():
         feedback += 1
     cap.release()
     out.release()
-    #os.remove(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    os.remove(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     
     return redirect(url_for('show_video', filename=outputFileName,feedback=feedback))
 
