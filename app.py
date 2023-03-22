@@ -3,7 +3,7 @@ import os
 import cv2
 os.environ['MEDIAPIPE_CPU_ONLY'] = '1'
 #import mediapipe as mp
-from mediapipe import solutions as mp
+#from mediapipe import solutions as mp
 
 
 # class PoseDetector:
