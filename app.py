@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, flash, get_flashed_messages
 import os
 import cv2
-os.environ['MEDIAPIPE_CPU_ONLY'] = '1'
-import mediapipe as mp
+#os.environ['MEDIAPIPE_CPU_ONLY'] = '1'
+#import mediapipe as mp
 #from mediapipe import solutions as mp
 
 
