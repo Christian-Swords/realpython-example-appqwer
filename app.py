@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, send_from_
 import os
 import cv2
 os.environ['MEDIAPIPE_CPU_ONLY'] = '1'
-#import mediapipe as mp
+import mediapipe as mp
 #from mediapipe import solutions as mp
 
 
