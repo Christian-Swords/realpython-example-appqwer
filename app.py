@@ -41,7 +41,7 @@ import cv2
 #                     cv2.circle(img, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
 #         return lmList
 
-
+#hi
 app = Flask(__name__)
 
 net = cv2.dnn.readNetFromTensorflow("graph_opt.pb")
